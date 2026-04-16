@@ -64,6 +64,10 @@ def main():
         total_loss = 0.0
         for step, (data, target) in enumerate(trainloader):
             data = data.to(model_engine.local_rank)
+            if model_engine.fp16_enabled():
+                data = data.half()
+            elif model_engine.bfloat16_enabled():
+                data = data.bfloat16()
             target = target.to(model_engine.local_rank)
 
             output = model_engine(data)

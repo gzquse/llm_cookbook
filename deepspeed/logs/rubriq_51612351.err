@@ -1,0 +1,403 @@
+Using /global/u2/g/gzquse/.cache/torch_extensions/py312_cu128 as PyTorch extensions root...
+Creating extension directory /global/u2/g/gzquse/.cache/torch_extensions/py312_cu128/fused_adam...
+Using /global/u2/g/gzquse/.cache/torch_extensions/py312_cu128 as PyTorch extensions root...
+Creating extension directory /global/u2/g/gzquse/.cache/torch_extensions/py312_cu128/fused_adam...
+Using /global/u2/g/gzquse/.cache/torch_extensions/py312_cu128 as PyTorch extensions root...
+Creating extension directory /global/u2/g/gzquse/.cache/torch_extensions/py312_cu128/fused_adam...
+Using /global/u2/g/gzquse/.cache/torch_extensions/py312_cu128 as PyTorch extensions root...
+Using /global/u2/g/gzquse/.cache/torch_extensions/py312_cu128 as PyTorch extensions root...
+Using /global/u2/g/gzquse/.cache/torch_extensions/py312_cu128 as PyTorch extensions root...
+Using /global/u2/g/gzquse/.cache/torch_extensions/py312_cu128 as PyTorch extensions root...
+Using /global/u2/g/gzquse/.cache/torch_extensions/py312_cu128 as PyTorch extensions root...
+Detected CUDA files, patching ldflags
+Emitting ninja build file /global/u2/g/gzquse/.cache/torch_extensions/py312_cu128/fused_adam/build.ninja...
+/usr/local/lib/python3.12/dist-packages/torch/utils/cpp_extension.py:2070: UserWarning: TORCH_CUDA_ARCH_LIST is not set, all archs for visible cards are included for compilation. 
+If this is not desired, please set os.environ['TORCH_CUDA_ARCH_LIST'].
+  warnings.warn(
+Building extension module fused_adam...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+Loading extension module fused_adam...
+Loading extension module fused_adam...
+Loading extension module fused_adam...
+Loading extension module fused_adam...
+Loading extension module fused_adam...
+Loading extension module fused_adam...Loading extension module fused_adam...
+
+Loading extension module fused_adam...
+[rank3]: Traceback (most recent call last):
+[rank3]:   File "/global/cfs/cdirs/m4992/llm/deepspeed/train_deepspeed.py", line 83, in <module>
+[rank3]:     main()
+[rank3]:   File "/global/cfs/cdirs/m4992/llm/deepspeed/train_deepspeed.py", line 69, in main
+[rank3]:     output = model_engine(data)
+[rank3]:              ^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank3]:     return self._call_impl(*args, **kwargs)
+[rank3]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank3]:     return forward_call(*args, **kwargs)
+[rank3]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/usr/local/lib/python3.12/dist-packages/deepspeed/utils/nvtx.py", line 18, in wrapped_fn
+[rank3]:     ret_val = func(*args, **kwargs)
+[rank3]:               ^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/usr/local/lib/python3.12/dist-packages/deepspeed/runtime/engine.py", line 1987, in forward
+[rank3]:     loss = self.module(*inputs, **kwargs)
+[rank3]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank3]:     return self._call_impl(*args, **kwargs)
+[rank3]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank3]:     return forward_call(*args, **kwargs)
+[rank3]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/global/cfs/cdirs/m4992/llm/deepspeed/train_deepspeed.py", line 36, in forward
+[rank3]:     return self.net(x)
+[rank3]:            ^^^^^^^^^^^
+[rank3]:   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank3]:     return self._call_impl(*args, **kwargs)
+[rank3]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank3]:     return forward_call(*args, **kwargs)
+[rank3]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 250, in forward
+[rank3]:     input = module(input)
+[rank3]:             ^^^^^^^^^^^^^
+[rank3]:   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank3]:     return self._call_impl(*args, **kwargs)
+[rank3]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank3]:     return forward_call(*args, **kwargs)
+[rank3]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/linear.py", line 125, in forward
+[rank3]:     return F.linear(input, self.weight, self.bias)
+[rank3]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]: RuntimeError: mat1 and mat2 must have the same dtype, but got Float and Half
+[rank1]: Traceback (most recent call last):
+[rank1]:   File "/global/cfs/cdirs/m4992/llm/deepspeed/train_deepspeed.py", line 83, in <module>
+[rank1]:     main()
+[rank1]:   File "/global/cfs/cdirs/m4992/llm/deepspeed/train_deepspeed.py", line 69, in main
+[rank1]:     output = model_engine(data)
+[rank1]:              ^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank1]:     return self._call_impl(*args, **kwargs)
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank1]:     return forward_call(*args, **kwargs)
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/usr/local/lib/python3.12/dist-packages/deepspeed/utils/nvtx.py", line 18, in wrapped_fn
+[rank1]:     ret_val = func(*args, **kwargs)
+[rank1]:               ^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/usr/local/lib/python3.12/dist-packages/deepspeed/runtime/engine.py", line 1987, in forward
+[rank1]:     loss = self.module(*inputs, **kwargs)
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank1]:     return self._call_impl(*args, **kwargs)
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank1]:     return forward_call(*args, **kwargs)
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/global/cfs/cdirs/m4992/llm/deepspeed/train_deepspeed.py", line 36, in forward
+[rank1]:     return self.net(x)
+[rank1]:            ^^^^^^^^^^^
+[rank1]:   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank1]:     return self._call_impl(*args, **kwargs)
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank1]:     return forward_call(*args, **kwargs)
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 250, in forward
+[rank1]:     input = module(input)
+[rank1]:             ^^^^^^^^^^^^^
+[rank1]:   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank1]:     return self._call_impl(*args, **kwargs)
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank1]:     return forward_call(*args, **kwargs)
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/linear.py", line 125, in forward
+[rank1]:     return F.linear(input, self.weight, self.bias)
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]: RuntimeError: mat1 and mat2 must have the same dtype, but got Float and Half
+[rank2]: Traceback (most recent call last):
+[rank2]:   File "/global/cfs/cdirs/m4992/llm/deepspeed/train_deepspeed.py", line 83, in <module>
+[rank2]:     main()
+[rank2]:   File "/global/cfs/cdirs/m4992/llm/deepspeed/train_deepspeed.py", line 69, in main
+[rank2]:     output = model_engine(data)
+[rank2]:              ^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank2]:     return self._call_impl(*args, **kwargs)
+[rank2]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank2]:     return forward_call(*args, **kwargs)
+[rank2]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/usr/local/lib/python3.12/dist-packages/deepspeed/utils/nvtx.py", line 18, in wrapped_fn
+[rank2]:     ret_val = func(*args, **kwargs)
+[rank2]:               ^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/usr/local/lib/python3.12/dist-packages/deepspeed/runtime/engine.py", line 1987, in forward
+[rank2]:     loss = self.module(*inputs, **kwargs)
+[rank2]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank2]:     return self._call_impl(*args, **kwargs)
+[rank2]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank2]:     return forward_call(*args, **kwargs)
+[rank2]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/global/cfs/cdirs/m4992/llm/deepspeed/train_deepspeed.py", line 36, in forward
+[rank2]:     return self.net(x)
+[rank2]:            ^^^^^^^^^^^
+[rank2]:   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank2]:     return self._call_impl(*args, **kwargs)
+[rank2]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank2]:     return forward_call(*args, **kwargs)
+[rank2]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 250, in forward
+[rank2]:     input = module(input)
+[rank2]:             ^^^^^^^^^^^^^
+[rank2]:   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank2]:     return self._call_impl(*args, **kwargs)
+[rank2]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank2]:     return forward_call(*args, **kwargs)
+[rank2]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/linear.py", line 125, in forward
+[rank2]:     return F.linear(input, self.weight, self.bias)
+[rank2]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]: RuntimeError: mat1 and mat2 must have the same dtype, but got Float and Half
+[rank7]: Traceback (most recent call last):
+[rank7]:   File "/global/cfs/cdirs/m4992/llm/deepspeed/train_deepspeed.py", line 83, in <module>
+[rank7]:     main()
+[rank7]:   File "/global/cfs/cdirs/m4992/llm/deepspeed/train_deepspeed.py", line 69, in main
+[rank7]:     output = model_engine(data)
+[rank7]:              ^^^^^^^^^^^^^^^^^^
+[rank7]:   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank7]:     return self._call_impl(*args, **kwargs)
+[rank7]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank7]:   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank7]:     return forward_call(*args, **kwargs)
+[rank7]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank7]:   File "/usr/local/lib/python3.12/dist-packages/deepspeed/utils/nvtx.py", line 18, in wrapped_fn
+[rank7]:     ret_val = func(*args, **kwargs)
+[rank7]:               ^^^^^^^^^^^^^^^^^^^^^
+[rank7]:   File "/usr/local/lib/python3.12/dist-packages/deepspeed/runtime/engine.py", line 1987, in forward
+[rank7]:     loss = self.module(*inputs, **kwargs)
+[rank7]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank7]:   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank7]:     return self._call_impl(*args, **kwargs)
+[rank7]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank7]:   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank7]:     return forward_call(*args, **kwargs)
+[rank7]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank7]:   File "/global/cfs/cdirs/m4992/llm/deepspeed/train_deepspeed.py", line 36, in forward
+[rank7]:     return self.net(x)
+[rank7]:            ^^^^^^^^^^^
+[rank7]:   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank7]:     return self._call_impl(*args, **kwargs)
+[rank7]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank7]:   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank7]:     return forward_call(*args, **kwargs)
+[rank7]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank7]:   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 250, in forward
+[rank7]:     input = module(input)
+[rank7]:             ^^^^^^^^^^^^^
+[rank7]:   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank7]:     return self._call_impl(*args, **kwargs)
+[rank7]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank7]:   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank7]:     return forward_call(*args, **kwargs)
+[rank7]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank7]:   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/linear.py", line 125, in forward
+[rank7]:     return F.linear(input, self.weight, self.bias)
+[rank7]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank7]: RuntimeError: mat1 and mat2 must have the same dtype, but got Float and Half
+[rank4]: Traceback (most recent call last):
+[rank4]:   File "/global/cfs/cdirs/m4992/llm/deepspeed/train_deepspeed.py", line 83, in <module>
+[rank4]:     main()
+[rank4]:   File "/global/cfs/cdirs/m4992/llm/deepspeed/train_deepspeed.py", line 69, in main
+[rank4]:     output = model_engine(data)
+[rank4]:              ^^^^^^^^^^^^^^^^^^
+[rank4]:   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank4]:     return self._call_impl(*args, **kwargs)
+[rank4]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank4]:   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank4]:     return forward_call(*args, **kwargs)
+[rank4]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank4]:   File "/usr/local/lib/python3.12/dist-packages/deepspeed/utils/nvtx.py", line 18, in wrapped_fn
+[rank4]:     ret_val = func(*args, **kwargs)
+[rank4]:               ^^^^^^^^^^^^^^^^^^^^^
+[rank4]:   File "/usr/local/lib/python3.12/dist-packages/deepspeed/runtime/engine.py", line 1987, in forward
+[rank4]:     loss = self.module(*inputs, **kwargs)
+[rank4]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank4]:   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank4]:     return self._call_impl(*args, **kwargs)
+[rank4]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank4]:   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank4]:     return forward_call(*args, **kwargs)
+[rank4]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank4]:   File "/global/cfs/cdirs/m4992/llm/deepspeed/train_deepspeed.py", line 36, in forward
+[rank4]:     return self.net(x)
+[rank4]:            ^^^^^^^^^^^
+[rank4]:   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank4]:     return self._call_impl(*args, **kwargs)
+[rank4]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank4]:   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank4]:     return forward_call(*args, **kwargs)
+[rank4]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank4]:   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 250, in forward
+[rank4]:     input = module(input)
+[rank4]:             ^^^^^^^^^^^^^
+[rank4]:   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank4]:     return self._call_impl(*args, **kwargs)
+[rank4]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank4]:   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank4]:     return forward_call(*args, **kwargs)
+[rank4]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank4]:   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/linear.py", line 125, in forward
+[rank4]:     return F.linear(input, self.weight, self.bias)
+[rank4]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank4]: RuntimeError: mat1 and mat2 must have the same dtype, but got Float and Half
+[rank6]: Traceback (most recent call last):
+[rank6]:   File "/global/cfs/cdirs/m4992/llm/deepspeed/train_deepspeed.py", line 83, in <module>
+[rank6]:     main()
+[rank6]:   File "/global/cfs/cdirs/m4992/llm/deepspeed/train_deepspeed.py", line 69, in main
+[rank6]:     output = model_engine(data)
+[rank6]:              ^^^^^^^^^^^^^^^^^^
+[rank6]:   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank6]:     return self._call_impl(*args, **kwargs)
+[rank6]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank6]:   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank6]:     return forward_call(*args, **kwargs)
+[rank6]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank6]:   File "/usr/local/lib/python3.12/dist-packages/deepspeed/utils/nvtx.py", line 18, in wrapped_fn
+[rank6]:     ret_val = func(*args, **kwargs)
+[rank6]:               ^^^^^^^^^^^^^^^^^^^^^
+[rank6]:   File "/usr/local/lib/python3.12/dist-packages/deepspeed/runtime/engine.py", line 1987, in forward
+[rank6]:     loss = self.module(*inputs, **kwargs)
+[rank6]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank6]:   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank6]:     return self._call_impl(*args, **kwargs)
+[rank6]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank6]:   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank6]:     return forward_call(*args, **kwargs)
+[rank6]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank6]:   File "/global/cfs/cdirs/m4992/llm/deepspeed/train_deepspeed.py", line 36, in forward
+[rank6]:     return self.net(x)
+[rank6]:            ^^^^^^^^^^^
+[rank6]:   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank6]:     return self._call_impl(*args, **kwargs)
+[rank6]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank6]:   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank6]:     return forward_call(*args, **kwargs)
+[rank6]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank6]:   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 250, in forward
+[rank6]:     input = module(input)
+[rank6]:             ^^^^^^^^^^^^^
+[rank6]:   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank6]:     return self._call_impl(*args, **kwargs)
+[rank6]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank6]:   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank6]:     return forward_call(*args, **kwargs)
+[rank6]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank6]:   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/linear.py", line 125, in forward
+[rank6]:     return F.linear(input, self.weight, self.bias)
+[rank6]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank6]: RuntimeError: mat1 and mat2 must have the same dtype, but got Float and Half
+[rank5]: Traceback (most recent call last):
+[rank5]:   File "/global/cfs/cdirs/m4992/llm/deepspeed/train_deepspeed.py", line 83, in <module>
+[rank5]:     main()
+[rank5]:   File "/global/cfs/cdirs/m4992/llm/deepspeed/train_deepspeed.py", line 69, in main
+[rank5]:     output = model_engine(data)
+[rank5]:              ^^^^^^^^^^^^^^^^^^
+[rank5]:   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank5]:     return self._call_impl(*args, **kwargs)
+[rank5]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank5]:   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank5]:     return forward_call(*args, **kwargs)
+[rank5]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank5]:   File "/usr/local/lib/python3.12/dist-packages/deepspeed/utils/nvtx.py", line 18, in wrapped_fn
+[rank5]:     ret_val = func(*args, **kwargs)
+[rank5]:               ^^^^^^^^^^^^^^^^^^^^^
+[rank5]:   File "/usr/local/lib/python3.12/dist-packages/deepspeed/runtime/engine.py", line 1987, in forward
+[rank5]:     loss = self.module(*inputs, **kwargs)
+[rank5]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank5]:   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank5]:     return self._call_impl(*args, **kwargs)
+[rank5]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank5]:   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank5]:     return forward_call(*args, **kwargs)
+[rank5]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank5]:   File "/global/cfs/cdirs/m4992/llm/deepspeed/train_deepspeed.py", line 36, in forward
+[rank5]:     return self.net(x)
+[rank5]:            ^^^^^^^^^^^
+[rank5]:   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank5]:     return self._call_impl(*args, **kwargs)
+[rank5]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank5]:   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank5]:     return forward_call(*args, **kwargs)
+[rank5]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank5]:   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 250, in forward
+[rank5]:     input = module(input)
+[rank5]:             ^^^^^^^^^^^^^
+[rank5]:   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank5]:     return self._call_impl(*args, **kwargs)
+[rank5]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank5]:   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank5]:     return forward_call(*args, **kwargs)
+[rank5]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank5]:   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/linear.py", line 125, in forward
+[rank5]:     return F.linear(input, self.weight, self.bias)
+[rank5]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank5]: RuntimeError: mat1 and mat2 must have the same dtype, but got Float and Half
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/global/cfs/cdirs/m4992/llm/deepspeed/train_deepspeed.py", line 83, in <module>
+[rank0]:     main()
+[rank0]:   File "/global/cfs/cdirs/m4992/llm/deepspeed/train_deepspeed.py", line 69, in main
+[rank0]:     output = model_engine(data)
+[rank0]:              ^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/usr/local/lib/python3.12/dist-packages/deepspeed/utils/nvtx.py", line 18, in wrapped_fn
+[rank0]:     ret_val = func(*args, **kwargs)
+[rank0]:               ^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/usr/local/lib/python3.12/dist-packages/deepspeed/runtime/engine.py", line 1987, in forward
+[rank0]:     loss = self.module(*inputs, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/global/cfs/cdirs/m4992/llm/deepspeed/train_deepspeed.py", line 36, in forward
+[rank0]:     return self.net(x)
+[rank0]:            ^^^^^^^^^^^
+[rank0]:   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/container.py", line 250, in forward
+[rank0]:     input = module(input)
+[rank0]:             ^^^^^^^^^^^^^
+[rank0]:   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/linear.py", line 125, in forward
+[rank0]:     return F.linear(input, self.weight, self.bias)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]: RuntimeError: mat1 and mat2 must have the same dtype, but got Float and Half
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+[2026-04-15T23:23:06.075] error: *** STEP 51612351.0 ON nid008589 CANCELLED AT 2026-04-15T23:23:06 DUE TO TIME LIMIT ***
+[2026-04-15T23:23:06.075] error: *** JOB 51612351 ON nid008589 CANCELLED AT 2026-04-15T23:23:06 DUE TO TIME LIMIT ***
+W0415 16:23:06.077000 1329914 torch/distributed/elastic/agent/server/api.py:719] Received 15 death signal, shutting down workers
+W0415 16:23:06.079000 1329914 torch/distributed/elastic/multiprocessing/api.py:898] Sending process 1329937 closing signal SIGTERM
+W0415 16:23:06.080000 1329914 torch/distributed/elastic/multiprocessing/api.py:898] Sending process 1329938 closing signal SIGTERM
+W0415 16:23:06.081000 1329914 torch/distributed/elastic/multiprocessing/api.py:898] Sending process 1329939 closing signal SIGTERM
+W0415 16:23:06.081000 1329914 torch/distributed/elastic/multiprocessing/api.py:898] Sending process 1329940 closing signal SIGTERM
+W0415 16:23:06.080000 2075697 torch/distributed/elastic/agent/server/api.py:719] Received 15 death signal, shutting down workers

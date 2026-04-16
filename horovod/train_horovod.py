@@ -1,17 +1,19 @@
 """
-Horovod distributed training example for NERSC Perlmutter.
+Distributed training example for NERSC Perlmutter using PyTorch DDP.
 
-Launch with srun (see submit_horovod.sh).  Each srun task is one Horovod
-rank pinned to one GPU.  Horovod uses NCCL under the hood for all-reduce.
+Launch with torchrun (see submit_horovod.sh).  Each torchrun worker is one
+DDP rank pinned to one GPU.  DDP uses NCCL for gradient all-reduce.
 """
 
 import argparse
+import os
+
 import torch
+import torch.distributed as dist
 import torch.nn as nn
 import torch.nn.functional as F
+from torch.nn.parallel import DistributedDataParallel as DDP
 from torch.utils.data import DataLoader, TensorDataset, DistributedSampler
-
-import horovod.torch as hvd
 
 
 def get_args():
@@ -46,32 +48,24 @@ def make_dummy_dataset(num_samples=10000, input_dim=784, num_classes=10):
 def main():
     args = get_args()
 
-    hvd.init()
-    torch.cuda.set_device(hvd.local_rank())
+    dist.init_process_group(backend="nccl")
+    local_rank = int(os.environ["LOCAL_RANK"])
+    rank = dist.get_rank()
+    world_size = dist.get_world_size()
+    torch.cuda.set_device(local_rank)
 
     dataset = make_dummy_dataset()
     sampler = DistributedSampler(
-        dataset, num_replicas=hvd.size(), rank=hvd.rank()
+        dataset, num_replicas=world_size, rank=rank
     )
     loader = DataLoader(
         dataset, batch_size=args.batch_size, sampler=sampler, num_workers=4
     )
 
     model = SimpleModel().cuda()
+    model = DDP(model, device_ids=[local_rank])
 
-    # Scale learning rate by number of workers (linear scaling rule)
-    optimizer = torch.optim.AdamW(model.parameters(), lr=args.lr * hvd.size())
-
-    # Wrap optimizer with Horovod's DistributedOptimizer for gradient
-    # all-reduce across ranks
-    optimizer = hvd.DistributedOptimizer(
-        optimizer, named_parameters=model.named_parameters()
-    )
-
-    # Broadcast initial parameters from rank 0 so all ranks start in sync
-    hvd.broadcast_parameters(model.state_dict(), root_rank=0)
-    hvd.broadcast_optimizer_state(optimizer, root_rank=0)
-
+    optimizer = torch.optim.AdamW(model.parameters(), lr=args.lr * world_size)
     criterion = nn.CrossEntropyLoss()
 
     for epoch in range(args.epochs):
@@ -89,9 +83,11 @@ def main():
             optimizer.step()
             total_loss += loss.item()
 
-        if hvd.rank() == 0:
+        if rank == 0:
             avg_loss = total_loss / (step + 1)
             print(f"Epoch {epoch + 1}/{args.epochs}  loss={avg_loss:.4f}")
+
+    dist.destroy_process_group()
 
 
 if __name__ == "__main__":

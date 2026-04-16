@@ -1,0 +1,25 @@
+=== Megatron-LM workflow overview ===
+
+1. Preprocess data:
+     python tools/preprocess_data.py \
+       --input raw_text.jsonl \
+       --output-prefix my-gpt2 \
+       --vocab-file gpt2-vocab.json \
+       --merge-file gpt2-merges.txt \
+       --tokenizer-type GPT2BPETokenizer \
+       --workers 32
+
+2. Launch training (see submit_megatron.sh):
+     torchrun ... pretrain_gpt.py \
+       --tensor-model-parallel-size 2 \
+       --pipeline-model-parallel-size 2 \
+       ...
+
+3. Key parallelism dimensions:
+     TP  -- splits attention heads / MLP across GPUs
+     PP  -- splits layers into pipeline stages
+     DP  -- replicates the model for data parallelism
+     DP = world_size / (TP * PP)
+
+Current world size: 8
+Rank 0 device: cuda:0

@@ -1,0 +1,117 @@
+/usr/bin/python: can't open file '/path/to/Megatron-LM/pretrain_gpt.py': [Errno 2] No such file or directory
+/usr/bin/python: can't open file '/path/to/Megatron-LM/pretrain_gpt.py': [Errno 2] No such file or directory
+/usr/bin/python: can't open file '/path/to/Megatron-LM/pretrain_gpt.py': [Errno 2] No such file or directory
+/usr/bin/python: can't open file '/path/to/Megatron-LM/pretrain_gpt.py': [Errno 2] No such file or directory
+/usr/bin/python: can't open file '/path/to/Megatron-LM/pretrain_gpt.py': [Errno 2] No such file or directory
+/usr/bin/python: can't open file '/path/to/Megatron-LM/pretrain_gpt.py': [Errno 2] No such file or directory
+/usr/bin/python: can't open file '/path/to/Megatron-LM/pretrain_gpt.py': [Errno 2] No such file or directory
+/usr/bin/python: can't open file '/path/to/Megatron-LM/pretrain_gpt.py': [Errno 2] No such file or directory
+E0415 16:12:02.571000 1431426 torch/distributed/elastic/multiprocessing/api.py:870] failed (exitcode: 2) local_rank: 0 (pid: 1431450) of binary: /usr/bin/python
+E0415 16:12:02.571000 109318 torch/distributed/elastic/multiprocessing/api.py:870] failed (exitcode: 2) local_rank: 0 (pid: 109340) of binary: /usr/bin/python
+Traceback (most recent call last):
+  File "/usr/local/bin/torchrun", line 33, in <module>
+Traceback (most recent call last):
+  File "/usr/local/bin/torchrun", line 33, in <module>
+    sys.exit(load_entry_point('torch==2.7.0a0+ecf3bae40a.nv25.2', 'console_scripts', 'torchrun')())
+    sys.exit(load_entry_point('torch==2.7.0a0+ecf3bae40a.nv25.2', 'console_scripts', 'torchrun')())
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 355, in wrapper
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 355, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/torch/distributed/run.py", line 918, in main
+    run(args)
+  File "/usr/local/lib/python3.12/dist-packages/torch/distributed/run.py", line 909, in run
+    return f(*args, **kwargs)
+    elastic_launch(
+  File "/usr/local/lib/python3.12/dist-packages/torch/distributed/launcher/api.py", line 139, in __call__
+           ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/torch/distributed/run.py", line 918, in main
+    return launch_agent(self._config, self._entrypoint, list(args))
+    run(args)
+  File "/usr/local/lib/python3.12/dist-packages/torch/distributed/run.py", line 909, in run
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/torch/distributed/launcher/api.py", line 270, in launch_agent
+    elastic_launch(
+  File "/usr/local/lib/python3.12/dist-packages/torch/distributed/launcher/api.py", line 139, in __call__
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+/path/to/Megatron-LM/pretrain_gpt.py FAILED
+------------------------------------------------------------
+Failures:
+[1]:
+  time      : 2026-04-15_16:12:02
+  host      : nid002029-hsn0
+  rank      : 1 (local_rank: 1)
+  exitcode  : 2 (pid: 1431451)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+[2]:
+  time      : 2026-04-15_16:12:02
+  host      : nid002029-hsn0
+  rank      : 2 (local_rank: 2)
+  exitcode  : 2 (pid: 1431452)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+[3]:
+  time      : 2026-04-15_16:12:02
+  host      : nid002029-hsn0
+  rank      : 3 (local_rank: 3)
+  exitcode  : 2 (pid: 1431453)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+    return launch_agent(self._config, self._entrypoint, list(args))
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2026-04-15_16:12:02
+  host      : nid002029-hsn0
+  rank      : 0 (local_rank: 0)
+  exitcode  : 2 (pid: 1431450)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/torch/distributed/launcher/api.py", line 270, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+/path/to/Megatron-LM/pretrain_gpt.py FAILED
+------------------------------------------------------------
+Failures:
+[1]:
+  time      : 2026-04-15_16:12:02
+  host      : nid003805-hsn0
+  rank      : 5 (local_rank: 1)
+  exitcode  : 2 (pid: 109341)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+[2]:
+  time      : 2026-04-15_16:12:02
+  host      : nid003805-hsn0
+  rank      : 6 (local_rank: 2)
+  exitcode  : 2 (pid: 109342)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+[3]:
+  time      : 2026-04-15_16:12:02
+  host      : nid003805-hsn0
+  rank      : 7 (local_rank: 3)
+  exitcode  : 2 (pid: 109343)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2026-04-15_16:12:02
+  host      : nid003805-hsn0
+  rank      : 4 (local_rank: 0)
+  exitcode  : 2 (pid: 109340)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================
+srun: error: nid003805: task 1: Exited with exit code 1
+srun: Terminating StepId=51612371.0
+srun: error: nid002029: task 0: Exited with exit code 1

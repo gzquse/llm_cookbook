@@ -9,13 +9,16 @@
 #SBATCH --time=30:00
 #SBATCH --image=nersc/pytorch:25.02.01
 #SBATCH --module=gpu,nccl-plugin
-#SBATCH --output=logs/rubriq_%j.out
-#SBATCH --error=logs/rubriq_%j.err
+#SBATCH --output=logs/%j.out
+#SBATCH --error=logs/%j.err
 
 # --- Rendezvous setup for torchrun ---
 export MASTER_ADDR=$(scontrol show hostnames $SLURM_JOB_NODELIST | head -n 1)
 export MASTER_PORT=29500
 export OMP_NUM_THREADS=8
+export PYTHONNOUSERSITE=1
+
+WORK_DIR=$SLURM_SUBMIT_DIR/deepspeed
 
 # NERSC recommends torchrun over the deepspeed launcher.
 # torchrun handles node discovery via SLURM, so no hostfile is needed.
@@ -28,4 +31,4 @@ srun shifter \
   --nproc-per-node=$SLURM_GPUS_PER_NODE \
   --rdzv-backend=c10d \
   --rdzv-endpoint=$MASTER_ADDR:$MASTER_PORT \
-  train_deepspeed.py --deepspeed_config ds_config.json
+  "$WORK_DIR/train_deepspeed.py" --deepspeed_config "$WORK_DIR/ds_config.json"

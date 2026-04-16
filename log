@@ -1,0 +1,8 @@
+sbatch deepspeed/submit_deepspeed.sh
+Submitted batch job 51638095
+gzquse@login18:/global/cfs/cdirs/m4992/llm> sbatch horovod/submit_horovod.sh
+Submitted batch job 51638096
+gzquse@login18:/global/cfs/cdirs/m4992/llm> sbatch megatron/submit_megatron.sh
+Submitted batch job 51638097
+gzquse@login18:/global/cfs/cdirs/m4992/llm> sbatch lightning/submit_lightning.sh
+Submitted batch job 51638099
